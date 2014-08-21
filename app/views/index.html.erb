@@ -30,7 +30,13 @@
   <input id="content" name="lessons[content]" value="<%= @lesson.content %>"><br>
   <label for="lesson_number">Lesson Number</label>
   <input id="lesson_number" name="lessons[lesson_number]" type="number" value="<%= @lesson.lesson_number %>" min="1"><br>
+  <label for="section">Section</label>
+  <select id="section" name="lessons[section_id]">
+    <% @sections.each do |section| %>
+      <option value="#{section.id}"><%= section.name %></option>
+    <% end %>
+  </select>
   <button>Add Lesson</button>
 </form>
 
-<a href="/sections"><button>Add New Section</button></a>
+<a href="/sections"><button>Section Menu</button></a>

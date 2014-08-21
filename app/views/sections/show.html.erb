@@ -1,5 +1,9 @@
 <h1><%= @section.name %></h1>
 
+<% @section.lessons.each do |lesson| %>
+  <li><a href="/lessons/<%= lesson.id %>"><%= lesson.name %></a></li>
+<% end %>
+
 <hr />
 <p><a href="/sections/<%= @section.id %>/edit"><button>Edit</button></a></p>
 

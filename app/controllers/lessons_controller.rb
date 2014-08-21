@@ -1,11 +1,13 @@
 class LessonsController < ApplicationController
   def index
+    @sections = Section.all
     @lesson = Lesson.new
     @lessons = Lesson.all
     render('/index.html.erb')
   end
 
   def create
+    @sections = Section.all
     @lesson = Lesson.new(params[:lessons])
     if @lesson.save
       redirect_to("/")

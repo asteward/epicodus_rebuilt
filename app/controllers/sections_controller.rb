@@ -3,6 +3,7 @@ class SectionsController < ApplicationController
   def index
     @section = Section.new
     @sections = Section.all
+
     render('sections/index.html.erb')
   end
 
