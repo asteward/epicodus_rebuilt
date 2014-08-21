@@ -23,6 +23,12 @@
   <input id="name" name="sections[name]" value="<%= @section.name %>"><br>
   <label for="Section_number">Section Number</label>
   <input id="section_number" name="sections[section_number]" type="number" value="<%= @section.section_number %>" min="1"><br>
+  <label for="chapter">Chapter</label>
+  <select id="chapter" name="sections[chapter_id]">
+    <% @chapters.each do |chapter| %>
+      <option value="<%= chapter.id %>"><%= chapter.name %></option>
+    <% end %>
+  </select>
   <button>Add Section</button>
 </form>
 <hr>

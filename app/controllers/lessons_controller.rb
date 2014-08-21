@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
     @sections = Section.all
     @lesson = Lesson.new
     @lessons = Lesson.all
-    render('/index.html.erb')
+    render('lessons/index.html.erb')
   end
 
   def create
@@ -12,7 +12,7 @@ class LessonsController < ApplicationController
     if @lesson.save
       redirect_to("/")
     else
-      render('/index.html.erb')
+      render('lessons/index.html.erb')
     end
   end
 
@@ -29,7 +29,7 @@ class LessonsController < ApplicationController
   def update
     @lesson = Lesson.find(params[:id])
     if @lesson.update(params[:lessons])
-      redirect_to('/')
+      redirect_to('/lessons/')
     else
       render('lessons/edit.html.erb')
     end
@@ -38,6 +38,6 @@ class LessonsController < ApplicationController
   def destroy
     @lesson = Lesson.find(params[:id])
     @lesson.delete
-    redirect_to("/")
+    redirect_to("/lessons/")
   end
 end

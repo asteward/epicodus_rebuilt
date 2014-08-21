@@ -1,0 +1,38 @@
+
+<% if @lessons %>
+  <h2> Lessons: </h2>
+  <ul>
+    <% @lessons.each do |lesson| %>
+      <li><a href="/lessons/<%= lesson.id %>"><%= lesson.name %></a></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @lesson.errors.any? %>
+  <br />
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @lesson.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <br />
+<% end %>
+
+<form action="/lessons/" method="post">
+  <label for="name">Lesson Name</label>
+  <input id="name" name="lessons[name]" value="<%= @lesson.name %>"><br>
+  <label for="content">Lesson Content</label>
+  <input id="content" name="lessons[content]" value="<%= @lesson.content %>"><br>
+  <label for="lesson_number">Lesson Number</label>
+  <input id="lesson_number" name="lessons[lesson_number]" type="number" value="<%= @lesson.lesson_number %>" min="1"><br>
+  <label for="section">Section</label>
+  <select id="section" name="lessons[section_id]">
+    <% @sections.each do |section| %>
+      <option value="<%= section.id %>"><%= section.name %></option>
+    <% end %>
+  </select>
+  <button>Add Lesson</button>
+</form>
+
+<a href="/sections"><button>Section Menu</button></a>

@@ -1,0 +1,29 @@
+<h1> Chapters </h1>
+
+
+<ul>
+  <% @chapters.each do |chapter| %>
+    <li><a href='/chapters/<%= chapter.id %>'><%= chapter.name %></a></li>
+  <% end %>
+</ul>
+
+<% if @chapter.errors.any? %>
+  <br />
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @chapter.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <br />
+<% end %>
+
+<form action="/chapters" method="post">
+  <label for="name">chapter Name</label>
+  <input id="name" name="chapters[name]" value="<%= @chapter.name %>"><br>
+  <label for="chapter_number">chapter Number</label>
+  <input id="chapter_number" name="chapters[number]" type="number" value="<%= @chapter.number %>" min="1"><br>
+  <button>Add Chapter</button>
+</form>
+<hr>
+<a href="/chapters"><button>Add New Chapter</button></a>

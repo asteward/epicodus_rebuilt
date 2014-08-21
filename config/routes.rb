@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  match('/', {via: :get, to: 'lessons#index'})
-  match('/', {via: :post, to: 'lessons#create'})
+  match('/', {via: :get, to: 'table_of_contents#index'})
+  match('/lessons', {via: :get, to: 'lessons#index'})
+  match('/lessons', {via: :post, to: 'lessons#create'})
   match('/lessons/:id', {via: :get, to: 'lessons#show'})
   match('/lessons/:id/edit', {via: :get, to: 'lessons#edit'})
   match('/lessons/:id', {via: [:patch, :put], to: 'lessons#update'})
@@ -11,4 +12,10 @@ Rails.application.routes.draw do
   match('/sections/:id/edit', {via: :get, to: 'sections#edit'})
   match('/sections/:id', {via: [:patch, :put], to: 'sections#update'})
   match('/sections/:id', {via: :delete, to: 'sections#destroy'})
+  match('/chapters', {via: :get, to: 'chapters#index'})
+  match('/chapters', {via: :post, to: 'chapters#create'})
+  match('/chapters/:id', {via: :get, to: 'chapters#show'})
+  match('/chapters/:id/edit', {via: :get, to: 'chapters#edit'})
+  match('/chapters/:id', {via: [:patch, :put], to: 'chapters#update'})
+  match('/chapters/:id', {via: :delete, to: 'chapters#destroy'})
 end

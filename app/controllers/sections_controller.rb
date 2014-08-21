@@ -3,11 +3,12 @@ class SectionsController < ApplicationController
   def index
     @section = Section.new
     @sections = Section.all
-
+    @chapters = Chapter.all
     render('sections/index.html.erb')
   end
 
   def create
+    @chapters = Chapter.all
     @section = Section.new(params[:sections])
     if @section.save
       redirect_to("/sections/#{@section.id}")

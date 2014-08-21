@@ -1,0 +1,15 @@
+<h1><%= @chapter.name %></h1>
+
+<% @chapter.sections.each do |section| %>
+  <li><a href="/sections/<%= section.id %>"><%= section.name %></a></li>
+<% end %>
+
+<hr />
+<p><a href="/chapters/<%= @chapter.id %>/edit"><button>Edit</button></a></p>
+
+<p><a href="/chapters/<%= @chapter.id %>"
+      data-confirm="You sure?"
+      data-method="delete"
+      rel="nofollow"><button>Delete</button></a></p>
+
+<p><a href="/chapters"><button type="click">Chapters Menu</button></a></p>
