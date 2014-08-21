@@ -32,4 +32,10 @@ class LessonsController < ApplicationController
       render('lessons/edit.html.erb')
     end
   end
+
+  def destroy
+    @lesson = Lesson.find(params[:id])
+    @lesson.delete
+    redirect_to("/")
+  end
 end

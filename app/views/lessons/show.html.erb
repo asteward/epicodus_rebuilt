@@ -4,4 +4,10 @@
 
 <hr />
 <p><a href="/lessons/<%= @lesson.id %>/edit"><button>Edit</button></a></p>
+
+<p><a href="/lessons/<%= @lesson.id %>"
+      data-confirm="You sure?"
+      data-method="delete"
+      rel="nofollow"><button>Delete</button></a></p>
+
 <p><a href="/"><button type="click">Lessons Menu</button></a></p>
