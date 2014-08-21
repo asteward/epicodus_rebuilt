@@ -1,1 +1,16 @@
 <h1> Lesson Homepage </h1>
+
+<h2> Lessons: </h2>
+<ul>
+  <% @lessons.each do |lesson| %>
+    <li><%= lesson.name %></li>
+  <% end %>
+</ul>
+
+<form action="/" method="post">
+  <label for="name">Lesson Name</label>
+  <input id="name" name="lessons[name]" value="<%= @lesson.name %>">
+  <label for="content">Lesson Content</label>
+  <input id="content" name="lessons[content]" value="<%= @lesson.content %>">
+  <button>Add Lesson</button>
+</form>
