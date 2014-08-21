@@ -3,12 +3,14 @@
   <h3> Welcome to the jungle!!! We've got fun and games!!! </h3>
   <h4> Don't forget your sunscreen! </h4>
 </div>
-<h2> Lessons: </h2>
-<ul>
-  <% @lessons.each do |lesson| %>
-    <li><a href="/lessons/<%= lesson.id %>"><%= lesson.name %></a></li>
-  <% end %>
-</ul>
+<% if @lessons %>
+  <h2> Lessons: </h2>
+  <ul>
+    <% @lessons.each do |lesson| %>
+      <li><a href="/lessons/<%= lesson.id %>"><%= lesson.name %></a></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <% if @lesson.errors.any? %>
   <br />
@@ -27,6 +29,6 @@
   <label for="content">Lesson Content</label>
   <input id="content" name="lessons[content]" value="<%= @lesson.content %>"><br>
   <label for="lesson_number">Lesson Number</label>
-  <input id="lesson_number" name="lessons[lesson_number]" value="<%= @lesson.lesson_number %>"><br>
+  <input id="lesson_number" name="lessons[lesson_number]" type="number" value="<%= @lesson.lesson_number %>" min="1"><br>
   <button>Add Lesson</button>
 </form>

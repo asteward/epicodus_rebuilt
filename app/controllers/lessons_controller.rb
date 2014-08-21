@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
   def index
     @lesson = Lesson.new
-    @lessons = Lesson.order(:lesson_number)
+    @lessons = Lesson.all
     render('/index.html.erb')
   end
 
@@ -31,6 +31,12 @@ class LessonsController < ApplicationController
     else
       render('lessons/edit.html.erb')
     end
+  end
+
+  def next
+    @lesson = Lesson.find(params[:id])
+    next_lesson = Lesson.find_by(lesson_number: (@lesson.lesson_number + 1))
+    redirect_to("/lessons/#{next_lesson.id}")
   end
 
   def destroy
