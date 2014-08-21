@@ -14,4 +14,9 @@
 <% if @lesson.next %>
   <p><a href="/lessons/<%= @lesson.next %>"><button>Next Lesson</button></a></p>
 <% end %>
+
+<% if @lesson.prev %>
+  <p><a href="/lessons/<%= @lesson.prev %>"><button>Previous Lesson</button></a></p>
+<% end %>
+
 <p><a href="/"><button type="click">Lessons Menu</button></a></p>

@@ -12,8 +12,10 @@ class Lesson < ActiveRecord::Base
   end
 
   def prev
-    @lesson = Lesson.find(params[:id])
+    @lesson = Lesson.find(self.id)
     prev_lesson = Lesson.find_by(lesson_number: (@lesson.lesson_number - 1))
-    prev_lesson.id
+    if prev_lesson
+      prev_lesson.id
+    end
   end
 end
