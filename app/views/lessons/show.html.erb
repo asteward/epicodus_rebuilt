@@ -10,7 +10,8 @@
       data-method="delete"
       rel="nofollow"><button>Delete</button></a></p>
 
-<form action="/lessons/<%= @lesson.id %>" method="post">
-  <button>Next Lesson</button>
-</form>
+
+<% if @lesson.next %>
+  <p><a href="/lessons/<%= @lesson.next %>"><button>Next Lesson</button></a></p>
+<% end %>
 <p><a href="/"><button type="click">Lessons Menu</button></a></p>
